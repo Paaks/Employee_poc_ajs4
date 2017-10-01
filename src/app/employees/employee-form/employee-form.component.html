@@ -1,0 +1,84 @@
+<h5>{{ title }}</h5>
+<div class="row">
+  <form materialize class="col s12" [formGroup]="form" (ngSubmit)="save()">
+    <div class="row">
+      <div class="input-field col s6">
+        <i class="material-icons prefix">account_circle</i>
+        <input id="firstName" type="text" class="validate"
+               [(ngModel)]="employee.firstName" formControlName="firstName"
+               [class.invalid]="form.controls['firstName'].touched && !form.controls['firstName'].valid"
+        >
+        <label for="firstName"
+               [class.active]="employee.firstName"
+               data-error="Firstname is required and needs to contain at least 3 chars.">
+          First Name
+        </label>
+      </div>
+      <div class="input-field col s6">
+        <input id="lastName" type="text" class="validate"
+               [(ngModel)]="employee.lastName" formControlName="lastName"
+               [class.invalid]="form.controls['lastName'].touched && !form.controls['lastName'].valid" 
+        >
+        <label for="lastName" [class.active]="employee.lastName" data-error="Lastname is required.">
+          Last Name
+        </label>
+      </div>
+    </div>
+     <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">perm_identity</i>
+        <input id="empId" type="text" class="validate"
+               [(ngModel)]="employee.id" formControlName="empId"  [class.invalid]="form.controls['empId'].touched && !form.controls['empId'].valid" 
+              >
+        <label for="empId"
+               [class.active]="employee.id" data-error="Employee ID is required."
+               >
+          Employee ID
+        </label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">email</i>
+        <input id="emailId" type="email" class="validate"
+               [(ngModel)]="employee.emailId" formControlName="emailId"
+               [class.invalid]="form.controls['emailId'].touched && !form.controls['emailId'].valid">
+        <label for="emailId"
+               [class.active]="employee.emailId"
+               data-error="Invalid Email">
+          Email
+        </label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">phone</i>
+        <input id="phone" type="text" class="validate"
+               [(ngModel)]="employee.contact" formControlName="phone" 
+               [class.invalid]="form.controls['phone'].touched && !form.controls['phone'].valid">
+        <label for="phone" [class.active]="employee.contact" data-error="Contact is required.">Phone
+        </label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s6">
+        <i class="material-icons prefix">work</i>
+        <input id="dept" type="text" class="validate"
+               [(ngModel)]="employee.dept" formControlName="dept" 
+               [class.invalid]="form.controls['dept'].touched && !form.controls['dept'].valid">
+        <label for="dept" [class.active]="employee.dept" data-error="Department is required.">Department</label>
+      </div>
+      <div class="input-field col s6">
+        <input id="designation" type="text" class="validate"
+               [(ngModel)]="employee.designation" formControlName="designation"
+               [class.invalid]="form.controls['designation'].touched && !form.controls['designation'].valid">
+        <label for="designation" [class.active]="employee.designation" data-error="Department is required.">Designation</label>
+      </div>
+    </div>
+  
+    <button class="btn waves-effect waves-light" type="submit"
+            [disabled]="!form.valid">
+      Submit<i class="material-icons right">send</i>
+    </button>
+  </form>
+</div>
